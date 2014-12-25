@@ -7,3 +7,10 @@ Rake::TestTask.new do |t|
 end
 
 task default: :test
+
+namespace :db do
+  desc "Migrate the database"
+  task :migrate do
+    system "sequel -m db/migrate sqlite://db/db.sqlite3"
+  end
+end
