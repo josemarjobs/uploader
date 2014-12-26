@@ -28,8 +28,21 @@ describe "Upload a file" do
     last_response.body.must_include "My first Zip file"
   end
 
-  it "retries the actual filename" do
+  it "retrieves the actual filename" do
     last_response.body.must_include "zip.zip"
   end
 
+  it "retrieves the full path of the file" do
+    last_response.body.must_include "public/uploads/assets"
+  end
+
 end
+
+
+
+
+
+
+
+
+
