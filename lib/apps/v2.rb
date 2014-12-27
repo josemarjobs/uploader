@@ -6,6 +6,7 @@ module API
       env['api.tilt.root'] = File.join(Dir.pwd, "lib/views")
     end
 
+    format :json
     default_format :json
     formatter :json, Grape::Formatter::Rabl
 
@@ -24,6 +25,12 @@ module API
         @asset.save
       end
 
+      get '/:id/download' do
+        file = Asset[params[:id]]
+        path = file.file_url.gsub("public/", "")
+
+        redirect path
+      end
     end
 
     resource :users do

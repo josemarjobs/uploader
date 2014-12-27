@@ -14,3 +14,8 @@ namespace :db do
     system "sequel -m db/migrate sqlite://db/db.sqlite3"
   end
 end
+
+desc "Start the application"
+task :start do
+  system "rackup config.ru"
+end
