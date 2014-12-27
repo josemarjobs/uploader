@@ -6,7 +6,7 @@ Rake::TestTask.new do |t|
   t.libs << "test"
 end
 
-task default: :test
+task default: [:test, "db:migrate"]
 
 namespace :db do
   desc "Migrate the database"
