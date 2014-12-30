@@ -1,3 +1,4 @@
 testes.rb
 public/uploads
 db/db.sqlite3
+coverage/

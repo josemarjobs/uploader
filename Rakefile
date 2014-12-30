@@ -6,12 +6,17 @@ Rake::TestTask.new do |t|
   t.libs << "test"
 end
 
-task default: [:test, "db:migrate"]
+task default: :test
 
 namespace :db do
   desc "Migrate the database"
   task :migrate do
     system "sequel -m db/migrate sqlite://db/db.sqlite3"
+  end
+
+  desc "Clean the database"
+  task :clear do
+    system "rm db/db.sqlite3"
   end
 end
 
